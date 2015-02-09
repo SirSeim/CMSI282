@@ -1,11 +1,20 @@
+import math
+
 class PriorityQueue:
     def __init__ (self):
         self.array = []
         self.size = 0
 
     def add (self, value):
-        # Add to Heap
-        # Correct Heap
+        self.array.append(value)
+        counter = len(self.array - 1)
+        while counter > 1:
+            half_counter = math.floor(counter / 2)
+            if self.array[counter] > self.array[half_counter]:
+                replacement = self.array[half_counter]
+                self.array[half_counter] = self.array[counter]
+                self.array[counter] = replacement
+            counter = half_counter
         self.size += 1
 
     def peek (self):
