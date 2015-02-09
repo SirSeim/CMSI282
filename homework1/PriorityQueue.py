@@ -7,7 +7,7 @@ class PriorityQueue:
 
     def add (self, value):
         self.array.append(value)
-        counter = len(self.array - 1)
+        counter = len(self.array) - 1
         while counter > 1:
             half_counter = math.floor(counter / 2)
             if self.array[counter] > self.array[half_counter]:
@@ -22,7 +22,10 @@ class PriorityQueue:
             return None
         else:
             result = self.array[0]
-            # Correct Heap
+            self.array[0] = self.array.pop(len(self.array) - 1)
+            counter = 0
+            while counter < len(self.array):
+                # Finish Siftdown
             return result
 
     def remove (self):
