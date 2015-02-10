@@ -32,7 +32,7 @@ class PriorityQueue:
                 child = counter * 2
                 if child < len(self.array) - 1 and self.array[child] < self.array[child + 1]:
                     child += 1
-                if not self.array[counter] < self.array[child]:
+                if self.array[counter] >= self.array[child]:
                     break
                 self.switch(counter, child)
                 counter = child
@@ -48,17 +48,12 @@ class PriorityQueue:
         return len(self.array) - 1
 
     def __str__ (self):
-        print_queue = PriorityQueue()
-        for value in self.array[1:]:
-            print_queue.add(value)
-
-        end = len(print_queue)
         result = "["
-        for index in range(0, end):
+        for index in range(1, len(self.array)):
             result += "\'"
-            result += str(print_queue.remove())
+            result += str(self.array[index])
             result += "\'"
-            if index < end - 1 :
+            if index < len(self.array)-1:
                 result += ", "
         result += "]"
         return result
