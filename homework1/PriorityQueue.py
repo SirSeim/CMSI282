@@ -3,10 +3,13 @@ import math
 class PriorityQueue:
     def __init__ (self):
         self.array = []
-        self.size = 0
 
     def add (self, value):
-        self.array.append(value)
+        if len(self) < 2:
+            self.array[0] = None
+            self.array[1] = value
+        else:
+            self.array.append(value)
         counter = len(self.array) - 1
         while counter > 1:
             half_counter = math.floor(counter / 2)
@@ -15,28 +18,30 @@ class PriorityQueue:
                 self.array[half_counter] = self.array[counter]
                 self.array[counter] = replacement
             counter = half_counter
-        self.size += 1
 
     def peek (self):
-        if self.size < 1:
+        if len(self) < 2:
             return None
         else:
-            result = self.array[0]
-            self.array[0] = self.array.pop(len(self.array) - 1)
-            counter = 0
-            while counter < len(self.array):
-                # Finish Siftdown
-            return result
+            return self.array[1]
 
     def remove (self):
         result = self.peek()
         if result is not None:
-            self.size -= 1
+            self.array[1] = self.array.pop(len(self.array) - 1)
+            counter = 1
+            while counter * 2 <= len(self.array):
+                first_child = counter * 2
+                second_child = counter * 2 + 1
+                if second_child 
+                if self.array[first_child] > self.array[second_child]:
+                    
         return result
 
     def __len__ (self):
-        return self.size
+        return len(self.array)
 
     def __str__ (self):
         return "This is a PriorityQueue"
+
 
