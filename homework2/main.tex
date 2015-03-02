@@ -1,63 +1,68 @@
 \documentclass[12pt,letterpaper]{article}
-%sets the paper's header
 \newcommand{\sethead}[5]{
 	\lhead{\textit{#1}}
 	\rhead{#2\\#3\\#4\\#5}
 }
 \usepackage[utf8]{inputenc}
-%headings
 \usepackage{fancyhdr}
-%double-space
 \usepackage{setspace}
-%variable margins
 \usepackage{geometry}
-%make the margins a bit less ridiculous
 \newgeometry{top=1in,bottom=1.5in,left=1in,right=1in}
-%images
 \usepackage{graphicx}
 \pagestyle{fancy}
 
 \begin{document}
-	%ragged right with paragraph indents
     \newlength{\saveparindent}
 	\setlength{\saveparindent}{\parindent}
 	\raggedright
 	\setlength{\parindent}{\saveparindent}
-    
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	%%     I   M   P   O   R   T   A   N   T   :      %%
-    %%  please remember to set the header to reflect  %%
-    %%      the class that you're writing for!        %%
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\sethead{Homework 2}{Adrian Lu and Edward Seim}{CMSI 282}{Dr. Ray Toal}{March 1, 2015}
     
-	%spacing
 	\doublespacing
 	\begin{center}
-		%necessary spacing between the header and the body
 	\end{center}
     
     \begin{enumerate}
-    \item
-    \begin{enumerate}
-    \item f= \(\theta\)(g)
-    \item f= \(\Omega\)(g)
-    \item f= \(\Omega\)(g)
-    \item f= 
-    \item f= 
-    \item f= \(\Omega\)(g)
-    \item f= \(O\)(g)
-    \item f= \(\Omega\)(g)
-    \item f= \(\Omega\)(g)
-    \item f= \(O\)(g)
-    \item f= \(\Omega\)(g)
-    \item f= \(\Omega\)(g)
-    \item f= \(\Omega\)(g)
-    \item f=
-    \item f=
-    \item f= \(\Omega\)(g)
-    \item f=
-    \end{enumerate}
+        \item
+            \begin{enumerate}
+                \item f= \(\theta\)(g)
+                \item f= \(\Omega\)(g)
+                \item f= \(\Omega\)(g)
+                \item f= 
+                \item f= 
+                \item f= \(\Omega\)(g)
+                \item f= \(O\)(g)
+                \item f= \(\Omega\)(g)
+                \item f= \(\Omega\)(g)
+                \item f= \(O\)(g)
+                \item f= \(\Omega\)(g)
+                \item f= \(\Omega\)(g)
+                \item f= \(\Omega\)(g)
+                \item f= \(\Theta\)(g)
+                \item f= \(O\)(g)
+                \item f= \(\Omega\)(g)
+                \item f= \(\Omega\)(g)
+            \end{enumerate}
+        \item
+            \begin{enumerate}
+                \item
+                    $\begin{array}{cc}
+                    AW + BY & AX + BZ \\
+                    CW + DY & CX + DZ \\
+                    \end{array}$
+                    =
+                    $\begin{array}{cc}
+                    A & B \\
+                    C & D \\
+                    \end{array}$
+                    $\times$
+                    $\begin{array}{cc}
+                    W & X \\
+                    Y & Z \\
+                    \end{array}$
+                \item
+                    Take the example of calculating $X^8$. By separating $X^8$ into its expanded multiplication form, we get X $\cdot$ X $\cdot$ X $\cdot$ X $\cdot$ X $\cdot$ X $\cdot$ X $\cdot$ X. By taking the product of each X $\cdot$ X with $X^2$, you get $X^2$ $\cdot$ $X^2$ $\cdot$ $X^2$ $\cdot$ $X^2$. Now, by again taking the product of each $X^2$  $\cdot$ $X^2$, you get $X^4$ $\cdot$ $X^4$. Finally, by combining these terms, we arrive at $X^8$, through 3 matrix multiplications. 3 = $log_2$(8). So, to compute $X^n$, it will take \(O\)(log(n)) mathematical operations.
+            \end{enumerate}
     \end{enumerate}
     
 \end{document}
