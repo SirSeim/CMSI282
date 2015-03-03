@@ -25,11 +25,11 @@
     \begin{enumerate}
         \item
             \begin{enumerate}
-                \item f= \(\theta\)(g)
+                \item f= \(\Theta\)(g)
                 \item f= \(\Omega\)(g)
                 \item f= \(\Omega\)(g)
-                \item f= 
-                \item f= 
+                \item f= \(\Omega\)(g)
+                \item f= \(\Omega\)(g)
                 \item f= \(\Omega\)(g)
                 \item f= \(O\)(g)
                 \item f= \(\Omega\)(g)
@@ -64,18 +64,31 @@
                     Take the example of calculating $X^8$. By separating $X^8$ into its expanded multiplication form, we get X $\cdot$ X $\cdot$ X $\cdot$ X $\cdot$ X $\cdot$ X $\cdot$ X $\cdot$ X. By taking the product of each X $\cdot$ X, you get $X^2$ $\cdot$ $X^2$ $\cdot$ $X^2$ $\cdot$ $X^2$. Now, by again taking the product of each $X^2$  $\cdot$ $X^2$, you get $X^4$ $\cdot$ $X^4$. Finally, by combining these terms, we arrive at $X^8$, through 3 matrix multiplications. 3 = log$_2$(8). So, to compute $X^n$, it will take \(O\)(log(n)) mathematical operations.
             \end{enumerate}
         \item
+            First, let's compare the length of compare the length of a binary integer and a decimal integer. The length of the former is floor(log$_2$x)+1, and the length of the latter is ciel(log$_{10}$x). Now let's compare 2 different binary numbers. Because we are using the floor function, we know that floor(log$_2$x) + 1 \(\leq\) log$_2$x + 1. Furthermore, we also know that log$_2$x $<$ log$_2$x + 1. Let's now compare 2 decimal numbers. Because we are using the ciel function, we know that 4 $\cdot$ ceil(log$_{10}$x) \(\geq\) 4 $\cdot$ log$_{10}$x. Now we have that 4 $\cdot$ log$_{10}$x $>$ log$_{10}$x. Now by applying the change the base formula, we can arrive at log$_{10}$x = log$_2$x / log$_2$10. This gives us that log$_2$x $\cdot$ log$_2$10 $\leq$ 4. Therefore we have that a binary integer can be no more than 4 times longer than its respective decimal integer.
         \item
+            Define $f_1$ = log(n!) and $f_2$ = n $\cdot$ logn. First, we need to show that both functions are bounded from above by logn$^n$. Taking the graph of $f_1$ and logn$^n$ will show that $f_1$ is indeed bounded from above by logn$^n$, and the graph of $f_1$ and log(n/2)$^{(n/2)}$ will show that log(n/2)$^{(n/2)}$ bounds $f_1$ from below. Next we need to check that the same is true when comparing these graphs with $f_2$ in place of $f_1$. Doing so for logn$^n$ will show that the two are essentially identical graphs, which is validated by utilizing logarithmic identities, which allows us to take the exponent, n, and move it out in front of the integral and then multiplying. Hence, because they are the same graph, we have that logn$^n$ does indeed bound $f_2$ from above. Finally, graphing both $f_2$ and log(n/2)$^{(n/2)}$, we find that log(n/2)$^{(n/2)}$ acts as a lower bound for $f_2$. Because both $f_1$ and $f_2$ share the same upper and lower bounds we have that log(n!) = \(\Theta\)(n log(n)).
         \item
             Yes, yes it is divisible by 35.
         \item
             Yes, it is indeed a multiple of 31.
         \item
+        	Repeated Squaring tells us that $a^{b}$ mod $c$ is where $b$ = 15 is:
+            \newline
+            $a^{15}$ = $X$ $\cdot$ ($X$ $\cdot$ [$X$ \(\cdot\) \(X^2\)]$^2$\()^2\)
+            \newline
+            Notice that this uses 6 multiplication operations. Addition-Chain Exponentiation tells us that $a^{b}$ mod $c$ is where $b$ = 15 is:
+            \newline
+            $a^{15}$ = $X^3$ $\cdot$ ([$X^3$\(]^2\)$)^2$
+            \newline
+            Notice that this only uses 5 multiplication operations because $X^3$ is only calculated once but is re-used.
         \item
+        	$2^{125}$ (mod 127) = 64
         \item
+        	$LCM.py$  The complexity of this algorithm is polynomial.
         \item
+        	While Wilson's Theorem can be used for primality testing, its inefficiency means it is not used in practice. Wilson's Theorem if you recall involves computing ($N$ - 1)! mod $N$. For large N this computation takes a long time, compared to other primality tests. As such, other primality tests are used because they are more efficient and faster than using Wilson's Theorem.
         \item
-        \item
-        \item
+        	$Powers.py$ 
     \end{enumerate}
     
 \end{document}
