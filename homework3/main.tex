@@ -1,7 +1,7 @@
 \documentclass[12pt,letterpaper]{article}
 \newcommand{\sethead}[5]{
-	\lhead{\textit{#1}}
-	\rhead{#2\\#3\\#4\\#5}
+    \lhead{\textit{#1}}
+    \rhead{#2\\#3\\#4\\#5}
 }
 \usepackage[utf8]{inputenc}
 \usepackage{fancyhdr}
@@ -13,14 +13,14 @@
 
 \begin{document}
     \newlength{\saveparindent}
-	\setlength{\saveparindent}{\parindent}
-	\raggedright
-	\setlength{\parindent}{\saveparindent}
-	\sethead{Homework 3}{Adrian Lu \& Edward Seim}{CMSI 282}{Dr. Ray Toal}{March 16, 2015}
+    \setlength{\saveparindent}{\parindent}
+    \raggedright
+    \setlength{\parindent}{\saveparindent}
+    \sethead{Homework 3}{Adrian Lu \& Edward Seim}{CMSI 282}{Dr. Ray Toal}{March 16, 2015}
     
-	\doublespacing
-	\begin{center}
-	\end{center}
+    \doublespacing
+    \begin{center}
+    \end{center}
     
     \begin{enumerate} 
         \item %1
@@ -28,7 +28,7 @@
             \begin{table}[ht]
                 \caption{Bozosort Performance}
                 \centering
-                \begin{tabular}{c | c }
+                \begin{tabular}{| c | c |}
                     \hline\hline
                     List Sizes & Average Runtime (seconds)\\ [0.5ex] % inserts table %heading
                     \hline
@@ -47,26 +47,162 @@
             \end{table}
             
         \item %2
+        $Autokey\_Vigenere\_Cipher.py$
             
         \item %3
+        LET US CHANGE OUR TRADITIONAL ATTITUDE TO THE CONSTRUCTION OF PROGRAMS INSTEAD OF IMAGINING THAT OUR MAIN TASK IS TO INSTRUCT A COMPUTER WHAT TO DO LET US CONCENTRATE RATHER ON EXPLAINING TO HUMAN BEINGS WHAT WE WANT A COMPUTER TO DO
             
         \item %4
+        COMPUTER SCIENCE IS NO MORE ABOUT COMPUTERS THAN ASTRONOMY IS ABOUT TELESCOPES S
             
         \item %5
+        We have that n = 729880581317 and e = 5. By factoring n, we get that p = 822893 and q = 886969, (p - 1)(q - 1) = (822892)(886968) = 729878871456. So, $de \equiv 1 mod(729878871456)$ and so d = 583903097165. Therefore the private key is (729880581317, 583903097165)
             
         \item %6
+        \begin{enumerate}
+        \item %a
+        We would want a digital signature to help and verify that the message has been sent by the proper person, and help indicate whether or not the message had been tampered with.
+        
+        \item %b
+        With $M^d (mod N)$ and knowing the public key $(N, e)$, verify works as follows:
+        
+        $M$ can be found by $(M^d (mod N))^e(mod N)$. Comparing that $M$ with the provided $M$ verifies the authenticity of the message and signature. 
+        
+        \item %c
+        With $p = 89$, $q = 73$. Therefore $N = 89(73) = 6497$. $(89-1)(73-1) = 6336$. Because $gcd(103, 6336) = 1$, $e = 103$. The first letter of one of our names is E. the ASCII code for E is 69. Since $d = (e^{-1})(mod  6336)= (103^{-1})(mod  6336)=4183$. To sign, $69^{4183}(mod 6497) = 4681$. Then, $(69^{4183})^{103}(mod 6497) = 69(mod 6497)$.
+        
+        \item %d
+        Alice should raise her message by 145.
+        
+        $(71-1)(23-1) = 352$. Note $391 = 17(23)$. So $d= 17^{-1} (mod 352)$. Because 7, 352 relatively prime, by Euclidean Algorithm we have $17x + 352y = 1$ where $x, y$ integers. $x = 145$ and $y = -7$. $17(-7) (mod 352) = 233$ does not work. $17(145) (mod 352) = 1$.
+        \end{enumerate}
             
         \item %7
-            
+        \begin{enumerate}
+        \item
+        If Bob signs something, Eve is then able to decrypt it by using the public key (N,e). Because this is public, Eve can factor N to get p and q. Because she also has e, she can take the modular inverse of e to produce d, with which Eve can decrypt messages sent from Alice to Bob.
+        \item
+        Eve would be able to decrypt the message from Alice to Bob because if the signature has to be verified from a third party, then the third party would have to be trusted and the message would have to be verified by each person's key before the message gets delivered. Without this neutral third party, Eve would be able to decrypt the message.
+        \end{enumerate}
+        
         \item %8
+        \begin{enumerate}
+        \item %a
+        \(O\)$(n^{2.33})$
+        
+        \item %b
+        \(O\)$(2^n)$
+        
+        \item %c
+        \(O\)$(n^{2logn})$
+        \end{enumerate}
+        (c) is best because it has the smallest power, aka fastest.
             
         \item %9
+        $T(n) = 2 * T(\frac{n}{2}) + 1$ with $n = 2^k$
+        
+        $T(1) = 0$
+        
+        $T(2) = 2 * T(1) + 1 = 2 * 0 + 1 = 1$
+        
+        $T(4) = 2 * T(2) + 1 = 2 * 1 + 1 = 3$
+        
+        $T(8) = 2 * T(4) + 1 = 2 * 3 + 1 = 7$
+        
+        $T(16) = 2 * T(8) + 1 = 2 * 7 + 1 = 15$
+        
+        ...
+        
+        Pattern: $(n-1)$
+        
+        $n = 2^k$:
+        
+        $T(2^k) = 2 * T(2^{k-1}) + 1$
+        
+        $T(2^k) = 2 * (2^{k-1} - 1) + 1$
+        
+        $T(2^k) = 2^{k-1}$
+        
+        $T(2^k) = n - 1$
+        
+        $T(2^k) = \Theta(n)$
             
         \item %10
+        \begin{enumerate}
+        \item %a
+        Algorithm outputs majority element if existent, otherwise false
+        
+        Initial array $N$ size $n$ is divided into A and B, equaly size $\frac{n}{2}$.
+        
+        Now merging begins.
+        
+        If both have equal majority elements, then output is that element. If only one of $A$ or $B$ has a majority element or if different majority elements, compare them to each of $N$. If the counting reveals an element that occurs $\frac{n}{2}$+ times, then output is that element. If neither have a majority or if counting revealed no majority, output is false.
+        
+        By definition, $r$ majority element of $N$ must be majority element of $A$ and/or $B$.
+        
+        Sub-problem merge means $2n+1$ comparisons. Thus, $T(n) = 2T(\frac{n}{2}) + O(n)$. By Master Theorem, $O(n $log$ n)$
+        
+        Guidance from UC Berkeley's CS department
+        
+        \item %b
+        Take the example set of elements A A A C C B B C C C B C C. Using a counter that has both a name and a number, which each start as undefined and 0 respectively. Now, iterate through the set of elements. In the example set, it will pass the first element, and the counter will be A:1. As it goes on through the next 2 elements it goes A:2 then A:3. As it iterates through non A elements, it decrements the counter. Thus, the next few elements will result in the counter becoming A:2, then A:1, then back to ?:0. It will continue in this fashion. From here on I will just put the different outputs of the counter. B:1 > ?:0 > C:1 > C:2 > C:1 > C:2 > C:3. Thus, you will find C to be the majority element. However, there are some potential issues with this algorithm. The author of the page where I found this algorithm (linked below) makes the following statement: "Note that if you replaced the first C with an A, above, the algorithm would still end with C being chosen, but in fact C would not be the majority element: there is no majority in the modified list.
+        (Algorithm taken from http://www.cs.utexas.edu/~moore/best-ideas/mjrty/)
+        \end{enumerate}
             
         \item %11
             
         \item %12
+        \def\spc{\par \vspace{\baselineskip}}
+        \spc
+        \spc
+        \spc
+        \spc
+        \spc
+        \spc
+        \spc
+        \spc
+        \spc
+        \spc
+        \spc
+        \spc
+        \spc
+        \spc
+        \spc
+        \spc
+        \spc
+        \spc
+        \spc
+        \spc
+        \spc
+        \spc
+        \spc
+        \spc
+        \begin{enumerate}
+        \item %a
+        The graph incorporates vertices which represent the states of the cups. The initial state or top vertex is 10:00, 07:07, 04:04. The children of each vertex represent the state after a pour. To prevent an infinite tree, we only add new states. Finding the solution is as simple as searching the tree.
+        
+        \item %b
+        Algorithm starts with initial state as root. We traverse the tree looking for the the state that satisfy the goal, namely 2 pints in either the 4 or 7 cup.
+        
+        \item %c
+        Cups are shown by (capacity):(content)
+        
+        10:00, 07:07, 04:04
+        
+        10:07, 07:00, 04:04
+        
+        10:10, 07:00, 04:01
+        
+        10:10, 07:01, 04:00
+        
+        10:06, 07:01, 04:04
+        
+        10:06, 07:05, 04:00
+        
+        10:02, 07:05, 04:04
+        
+        10:02, 07:07, 04:02
+        \end{enumerate}
             
     \end{enumerate}
     
